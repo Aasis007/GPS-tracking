@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "573434296721",
+    "project_id": "gpyes-9959f",
+    "storage_bucket": "gpyes-9959f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573434296721:android:65778dae3f2422f0ef4230",
+        "android_client_info": {
+          "package_name": "com.kandktech.gpyes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573434296721-7je3lgfshvu1jbdcrbrmvr07svbcohd3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJ2JOBcFYiSK16Dx2Pav33fxopbAKlaD0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573434296721-7je3lgfshvu1jbdcrbrmvr07svbcohd3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
