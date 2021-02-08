@@ -7,6 +7,8 @@ import android.util.Log;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.kandktech.gpyes.Utls.SessionManagement;
+import com.kandktech.gpyes.sharedpreference.SharedPreferenceClass;
 import com.kandktech.gpyes.ui.home.HomeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -19,27 +21,35 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
 
-
         try {
             FirebaseMessaging.getInstance().subscribeToTopic("gpsupdates")
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            String msg = getString(R.string.msg_subscribed);
-                            if (!task.isSuccessful()) {
-                                msg = getString(R.string.msg_subscribe_failed);
-                            }
-                            Log.d("message : ", msg);
-//                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    .addOnCompleteListener(task -> {
+                        String msg = getString(R.string.msg_subscribed);
+                        if (!task.isSuccessful()) {
+                            msg = getString(R.string.msg_subscribe_failed);
                         }
+                        Log.d("message : ", msg);
+//                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                    });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        try {
+            FirebaseMessaging.getInstance().subscribeToTopic(getIntent().getExtras().getString("email"))
+                    .addOnCompleteListener(task -> {
+                        String msg = getString(R.string.msg_subscribed);
+                        if (!task.isSuccessful()) {
+                            msg = getString(R.string.msg_subscribe_failed);
+                        }
+                        Log.d("message : ", msg);
+//                            Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                     });
         }catch (Exception e){
             e.printStackTrace();
